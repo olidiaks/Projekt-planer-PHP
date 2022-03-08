@@ -9,5 +9,10 @@
 <?php
 include "navBar.html";
 ?>
+
+<script src="navbar.js"></script>
+<script>
+    activeItemOnNavbar('Strona główna');
+</script>
 </body>
 </html>
