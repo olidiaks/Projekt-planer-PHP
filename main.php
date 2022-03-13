@@ -2,7 +2,7 @@
 <html lang="pl">
 <?php include "head.html"; ?>
 
-<body>
+<body class="bg-dark text-light">
 <?php
 include "navBar.html";
 
