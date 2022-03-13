@@ -9,13 +9,8 @@
 <?php
 include "navBar.html";
 
+include 'database/database connection.php';
 
-if ($con = mysqli_connect('127.0.0.1', 'Projekt planer PHP', 'Z]J.5*Y/Y7n0Ptq7', 'Projekt planer PHP')) {
-    include 'database/createDatabases.php';
-} else {
-    echo $con;
-    return 0;
-}
 
 ?>
 
