@@ -4,14 +4,14 @@
 
 <body class="bg-dark text-light">
 <div class="container">
-    <form action="main.php" class="needs-validation" method="get" novalidate>
+    <form action="main.php" class="needs-validation" method="post" novalidate>
         <div class="my-3">
             <label for="email" class="form-label">Adres email</label>
             <input type="email" class="form-control border-2" id="email" name="email" aria-describedby="emailHelp"
                    required>
             <div class="valid-feedback">Adres email spełnia wszystkie warunki.</div>
             <div class="invalid-feedback">Adres email jest niepoprawny. Adres email musi zawierać @ oraz domenę,
-                na której jest zarejestrowany. (przykłądowyAdresEmail@mojastrona.pl)
+                na której jest zarejestrowany. (przykłądowyAdresEmail@planer.pl)
             </div>
             <div id="emailHelp" class="form-text">Nie podawaj nigdy, nikomu adresu email ani hasła.</div>
         </div>
@@ -39,6 +39,6 @@
         <button type="submit" class="btn btn-primary">Zaloguj się</button>
     </form>
 </div>
-<script src="login.js"></script>
+<script src="forms-validation.js"></script>
 </body>
 </html>
