@@ -1,6 +1,6 @@
 <?php
 
-$sql = 'show tables like "user"';
+$sql = 'show tables like "Users"';
 
 $query = mysqli_query($con, $sql);
 
@@ -9,7 +9,7 @@ if (mysqli_num_rows($query) == 0) {
         CREATE TABLE `Projekt planer PHP`.`Users` 
         ( `idUser` INT NOT NULL AUTO_INCREMENT ,
         `userName` VARCHAR(65) NOT NULL,
-        `login` VARCHAR(65) NOT NULL ,
+        `email` VARCHAR(65) NOT NULL ,
         `password` VARCHAR(65) NOT NULL ,
         PRIMARY KEY (`idUser`)) 
         ENGINE = InnoDB;

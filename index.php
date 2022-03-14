@@ -29,9 +29,14 @@ if ($_POST) {
         !preg_match('@[^\w]@', $password) ||
         !preg_match('@[0-9]@', $password)
     ) {
-        echo '<h1 class="text-center text-warning">Czy ty na serio myślałeś, że uda ci się obejść walidacje.</h1>' .
-            '<h1 class="text-center text-warning">Usuwając zabezpieczenia z frontend-u. To </h1>' .
-            '<h1 class="text-center text-warning">To się mylisz!</h1>';
+        echo
+        '<div class="container">
+                    <div class="alert alert-danger text-center mt-3" role="alert">
+                    <h1 class="text-center text-warning">Czy ty na serio myślałeś, że uda ci się obejść walidacje.</h1>
+                    <h1 class="text-center text-warning">Usuwając zabezpieczenia z frontend-u. To </h1>
+                    <h1 class="text-center text-warning">To się mylisz!</h1>
+                    </div>
+                </div>';
         include "register.php";
         return 0;
     }
@@ -39,21 +44,49 @@ if ($_POST) {
     if ($password != $confirmPassword) {
         echo '
                 <div class="container">
-                    <div class="alert alert-danger text-center mt-3" role="alert">Hasła nie są takie same.</div>
+                    <div class="alert alert-warning text-center mt-3" role="alert">Hasła nie są takie same.</div>
                 </div>
-            ';
+        ';
         include "register.php";
         return 0;
     }
 
     include 'database/database connection.php';
 
-    $sql = "insert into Users (userName, login, password) VALUE ('$userName', '$email', '$password')";
+    $sql = "select userName from Users where userName = '$userName'";
 
+    $query = mysqli_query($con, $sql);
+
+    if (mysqli_num_rows($query) != 0) {
+        echo "
+                <div class=\"container\">
+                    <div class=\"alert alert-warning\">Istnieje konto o nazwie $userName. Użyj innej nazwy.</div>
+                </div>
+        ";
+
+        include 'register.php';
+        return 0;
+    }
+
+    $sql = "select email from Users where email = '$email'";
+
+    $query = mysqli_query($con, $sql);
+
+    if (mysqli_num_rows($query) != 0) {
+        echo '
+                <div class="container">
+                    <div class="alert alert-warning">Istnieje konto zarejestrowane na ten email. Użyj innego.</div>
+                </div>
+        ';
+
+        include 'register.php';
+        return 0;
+    }
+
+    $sql = "insert into Users (userName, email, password) VALUE ('$userName', '$email', '$password')";
     mysqli_query($con, $sql);
-
+    mysqli_close($con);
 }
-
 ?>
 
 <div class="container">
