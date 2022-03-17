@@ -25,11 +25,13 @@ $query = mysqli_query($con, $sql);
 if (mysqli_num_rows($query) == 0) {
     $sql = '
         CREATE TABLE `Projekt planer PHP`.`Event`
-        ( `idEvent` INT NOT NULL AUTO_INCREMENT ,
+        ( `idEvent` INT NOT NULL AUTO_INCREMENT , 
         `idUser` INT NOT NULL ,
         `content` INT NOT NULL ,
-        `data` DATETIME NOT NULL ,
-        PRIMARY KEY (`idEvent`)) ENGINE = InnoDB;
+        `data` DATE NOT NULL , 
+        `time` TIME NOT NULL ,
+        PRIMARY KEY (`idEvent`))
+        ENGINE = InnoDB;
         ';
 
     mysqli_query($con, $sql);
