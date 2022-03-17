@@ -27,7 +27,7 @@ if (mysqli_num_rows($query) == 0) {
         CREATE TABLE `Projekt planer PHP`.`Event`
         ( `idEvent` INT NOT NULL AUTO_INCREMENT , 
         `idUser` INT NOT NULL ,
-        `content` INT NOT NULL ,
+        `content` VARCHAR(65) NOT NULL ,
         `date` DATE NOT NULL , 
         `time` TIME NOT NULL ,
         PRIMARY KEY (`idEvent`))
