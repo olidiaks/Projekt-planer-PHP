@@ -22,6 +22,8 @@ if ($_POST && isset($_POST['email']) && isset($_POST['password'])) {
         $_SESSION['idUser'] = $idUser;
 
         include "navBar.php";
+
+
         ?>
 
         <script src="navbar.js"></script>

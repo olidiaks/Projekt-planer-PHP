@@ -17,7 +17,7 @@
                    required maxlength="65">
             <div class="valid-feedback">Adres email spełnia wszystkie warunki.</div>
             <div class="invalid-feedback">Adres email jest niepoprawny. Adres email musi zawierać @ oraz domenę,
-                na której jest zarejestrowany oraz nie może być dłuższy niż 65 znaków. (przykładowyAdresEmail@planer.pl)
+                na której jest zarejestrowany oraz nie może być dłuższy niż 65 znaków. (przykładowyAdresEmail@planer)
             </div>
             <div id="emailHelp" class="form-text">Nie podawaj nigdy, nikomu adresu email ani hasła.</div>
         </div>
