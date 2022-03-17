@@ -23,6 +23,17 @@ if ($_POST && isset($_POST['email']) && isset($_POST['password'])) {
 
         include "navBar.php";
 
+        for ($i = 0; $i < 28; $i++) {
+            echo $date = date("Y-m-d", time() + 86400 * $i) . '<br>';
+            $sql = "select content, time from Event
+                    where date = '$date' and idUser = '" . $_SESSION['idUser'] . "' order by time";
+            $query = mysqli_query($con, $sql);
+            while ($row = mysqli_fetch_array($query)) {
+
+            }
+
+        }
+
 
         ?>
 
@@ -33,7 +44,7 @@ if ($_POST && isset($_POST['email']) && isset($_POST['password'])) {
     <?php } else {
         echo '<div class="container">
                 <div class="alert alert-danger mt-3">Nie ma konta o takim e–mailu lub haśle.</div>
-            </div>';
+              </div>';
     }
     mysqli_close($con);
 } else {
