@@ -1,6 +1,6 @@
 <?php
 
-$sql = 'show tables like "Users"';
+$sql = "show tables like 'Users'";
 
 $query = mysqli_query($con, $sql);
 
@@ -16,4 +16,21 @@ if (mysqli_num_rows($query) == 0) {
         ';
     mysqli_query($con, $sql);
 
+}
+
+$sql = "show tables like 'Event'";
+
+$query = mysqli_query($con, $sql);
+
+if (mysqli_num_rows($query) == 0) {
+    $sql = '
+        CREATE TABLE `Projekt planer PHP`.`Event`
+        ( `idEvent` INT NOT NULL AUTO_INCREMENT ,
+        `idUser` INT NOT NULL ,
+        `content` INT NOT NULL ,
+        `data` DATETIME NOT NULL ,
+        PRIMARY KEY (`idEvent`)) ENGINE = InnoDB;
+        ';
+
+    mysqli_query($con, $sql);
 }
