@@ -29,7 +29,8 @@ if (mysqli_num_rows($query) == 0) {
         `idUser` INT NOT NULL ,
         `content` VARCHAR(65) NOT NULL ,
         `date` DATE NOT NULL , 
-        `time` TIME NOT NULL ,
+        `timeStart` TIME NOT NULL ,
+        `timeEnd` TIME NOT NULL ,
         PRIMARY KEY (`idEvent`))
         ENGINE = InnoDB;
         ';
