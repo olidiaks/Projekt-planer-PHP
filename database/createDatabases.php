@@ -28,7 +28,7 @@ if (mysqli_num_rows($query) == 0) {
         ( `idEvent` INT NOT NULL AUTO_INCREMENT , 
         `idUser` INT NOT NULL ,
         `content` INT NOT NULL ,
-        `data` DATE NOT NULL , 
+        `date` DATE NOT NULL , 
         `time` TIME NOT NULL ,
         PRIMARY KEY (`idEvent`))
         ENGINE = InnoDB;
