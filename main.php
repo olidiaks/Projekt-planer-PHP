@@ -34,17 +34,17 @@ if ($_POST && isset($_POST['email']) && isset($_POST['password'])) {
                     order by timeStart";
             $query = mysqli_query($con, $sql);
             echo "<div class='col-12 col-md-4 border border-4'>
-                      <div class='row'>
+                      <div class='row border-bottom border-4'>
                             <div class='col bg-info text-black'>Plan na dzień $date</div>
                       </div>";
             while ($row = mysqli_fetch_array($query)) {
                 echo '<div class="row">
                           <div class="col">
                               <div class="row">
-                                  <div class="col bg-primary">Wydążenie rozpoczyna się o' . $row['timeStart'] . ', zakończy się o ' . $row['timeEnd'] . '.</div>
+                                  <div class="col bg-primary border-bottom border-4">Wydążenie rozpoczyna się o' . $row['timeStart'] . ', zakończy się o ' . $row['timeEnd'] . '.</div>
                               </div>
                               <div class="row">
-                                  <div class="col bg-secondary">' . $row['content'] . '</div>
+                                  <div class="col bg-secondary bg-gradient">' . $row['content'] . '</div>
                               </div>
                           </div>
                       </div>';
