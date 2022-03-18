@@ -41,7 +41,7 @@ if (isset($_SESSION['idUser'])) {
         }
         $date = date("Y-m-d", time() + 86400 * $i) . '<br>';
 
-        $sql = "select content, timeStart, timeEnd from Event
+        $sql = "select idEvent, content, timeStart, timeEnd from Event
                     where date = '$date' and idUser = '" . $_SESSION['idUser'] . "'
                     order by timeStart";
         $query = mysqli_query($con, $sql);
@@ -53,10 +53,26 @@ if (isset($_SESSION['idUser'])) {
             echo '<div class="row">
                           <div class="col">
                               <div class="row">
-                                  <div class="col bg-primary border-bottom border-4">Wydążenie rozpoczyna się o' . $row['timeStart'] . ', zakończy się o ' . $row['timeEnd'] . '.</div>
+                                  <div class="col bg-primary border-bottom border-4">
+                                    Wydążenie rozpoczyna się o ' . $row['timeStart'] . ', zakończy się o ' . $row['timeEnd'] . '.
+                                  </div>
                               </div>
                               <div class="row">
-                                  <div class="col bg-secondary bg-gradient">' . $row['content'] . '</div>
+                                  <div class="col bg-secondary bg-gradient border-bottom border-4">
+                                        ' . $row['content'] . '
+                                  </div>
+                              </div>
+                              <div class="row">
+                                    <a href="edit%20event.php?idEvent=' . $row['idEvent'] . '" 
+                                        class="btn btn-warning col-6 rounded-0">
+                                            Edytuj wydażenie.
+                                    </a>
+                                    <a href=
+                                        "
+                                        " 
+                                        class="btn btn-danger col-6 rounded-0">
+                              
+                                    </a>
                               </div>
                           </div>
                       </div>';
