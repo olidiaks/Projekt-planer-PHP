@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="pl">
-<head>
-    <?php include 'head.html'; ?>
-</head>
+<?php include 'head.html'; ?>
 <body class="bg-dark text-light">
 
 <?php
