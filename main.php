@@ -67,11 +67,9 @@ if (isset($_SESSION['idUser'])) {
                                         class="btn btn-warning col-6 rounded-0">
                                             Edytuj wydażenie.
                                     </a>
-                                    <a href=
-                                        "
-                                        " 
+                                    <a href="delete%20event.php?idEvent=' . $row['idEvent'] . '" 
                                         class="btn btn-danger col-6 rounded-0">
-                              
+                                            Usuń!
                                     </a>
                               </div>
                           </div>
