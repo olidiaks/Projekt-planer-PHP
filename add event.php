@@ -63,7 +63,7 @@ if (isset($_SESSION['idUser'])) {
     </div>
     <script src="navbar.js"></script>
     <script>
-        activeItemOnNavbar('Dodaj wydarzenie do kalendarza.');
+        activeItemOnNavbar('Dodaj wydarzenie do kalendarza');
     </script>
     <script src="forms-validation.js"></script>
 
