@@ -44,7 +44,7 @@ if (isset($_SESSION['idUser'])) {
                 <div class="invalid-feedback">Pole powyżej jest wymagane.</div>
             </div>
             <div class="mb-3">
-                <label for="date" class="form-label">Godzina rozpoczęcia wydarzenia</label>
+                <label for="date" class="form-label">Dzień, w którym odbywa się to wydarzenie</label>
                 <input type="date" id="date" class="form-control" name="date" required>
                 <div class="invalid-feedback">Pole powyżej jest wymagane.</div>
             </div>
