@@ -16,6 +16,6 @@ for (const form of forms) {
             event.stopPropagation();
         }
     })
-    form.classList.add('was-validated')
+    form.classList.add('was-validated');
 }
 
