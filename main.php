@@ -23,7 +23,9 @@ if ($_POST && isset($_POST['email']) && isset($_POST['password'])) {
         echo '<div class="container">
                 <div class="alert alert-danger mt-3">Nie ma konta o takim e–mailu lub haśle.</div>
               </div>';
-
+        $_POST = false;
+        include 'index.php';
+        exit();
     }
     mysqli_close($con);
 }
