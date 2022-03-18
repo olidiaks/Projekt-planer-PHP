@@ -6,6 +6,29 @@
 <?php
 session_start();
 
+if (
+    isset($_SESSION['idUser']) &&
+    isset($_POST['content']) &&
+    isset($_POST['date']) &&
+    isset($_POST['timeStart']) &&
+    isset($_POST['timeEnd'])
+) {
+    include "database/database connection.php";
+    $sql = "insert into Event (idUser, content, date, timeStart, timeEnd) 
+            VALUE ('" . $_SESSION['idUser'] . "',
+            '" . $_POST['content'] . "',
+            '" . $_POST['date'] . "',
+            '" . $_POST['timeStart'] . "',
+            '" . $_POST['timeEnd'] . "')";
+    if ($query = mysqli_query($con, $sql)) {
+        mysqli_close($con);
+        header('Location: main.php');
+        exit();
+
+    }
+
+}
+
 if (isset($_SESSION['idUser'])) {
     include 'database/database connection.php';
     include 'navBar.php';
@@ -14,7 +37,7 @@ if (isset($_SESSION['idUser'])) {
     mysqli_close($con);
     ?>
     <div class="container">
-        <form class="mt-3 needs-validation" novalidate>
+        <form class="mt-3 needs-validation" novalidate method="post" action="add%20event.php">
             <div class="mb-3">
                 <label for="content" class="form-label">Nazwa wydarzenia</label>
                 <input type="text" class="form-control" id="content" name="content" required>

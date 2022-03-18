@@ -36,7 +36,7 @@ if (isset($_SESSION['idUser'])) {
 
     for ($i = 0; $i < 30; $i++) {
         if ($i % 3 == 0) {
-            echo '<div class="row bg-gradient">';
+            echo '<div class="row bg-success bg-gradient">';
 
         }
         $date = date("Y-m-d", time() + 86400 * $i) . '<br>';
