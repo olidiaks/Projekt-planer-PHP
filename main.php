@@ -37,7 +37,7 @@ if (isset($_SESSION['idUser'])) {
     echo '<div class="container mt-2">';
 
     for ($i = 0; $i < 30; $i++) {
-        if ($i % 3 == 0) {
+        if ($i % 6 == 0) {
             echo '<div class="row bg-success bg-gradient">';
 
         }
@@ -47,7 +47,7 @@ if (isset($_SESSION['idUser'])) {
                     where date = '$date' and idUser = '" . $_SESSION['idUser'] . "'
                     order by timeStart";
         $query = mysqli_query($con, $sql);
-        echo "<div class='col-12 col-md-4 border border-4'>
+        echo "<div class='col-12 col-md-6 col-lg-4 border border-4'>
                       <div class='row border-bottom border-4'>
                             <div class='col bg-info text-black'>Plan na dzień $date</div>
                       </div>";
@@ -55,12 +55,12 @@ if (isset($_SESSION['idUser'])) {
             echo '<div class="row">
                           <div class="col">
                               <div class="row">
-                                  <div class="col bg-primary border-bottom border-4">
+                                  <div class="col bg-primary border-bottom border-top border-4">
                                     Wydążenie rozpoczyna się o ' . $row['timeStart'] . ', zakończy się o ' . $row['timeEnd'] . '.
                                   </div>
                               </div>
                               <div class="row">
-                                  <div class="col bg-secondary bg-gradient border-bottom border-4">
+                                  <div class="col bg-secondary bg-gradient border-bottom border-4 text-break">
                                         ' . $row['content'] . '
                                   </div>
                               </div>
@@ -70,7 +70,7 @@ if (isset($_SESSION['idUser'])) {
                                             Edytuj wydażenie.
                                     </a>
                                     <a href="delete%20event.php?idEvent=' . $row['idEvent'] . '" 
-                                        class="btn btn-danger col-6 rounded-0">
+                                        class="btn btn-danger col-6 text-center rounded-0">
                                             Usuń!
                                     </a>
                               </div>
@@ -78,7 +78,7 @@ if (isset($_SESSION['idUser'])) {
                       </div>';
         }
         echo "</div>";
-        if ($i % 3 == 2) {
+        if ($i % 6 == 5) {
             echo '</div>';
         }
 
