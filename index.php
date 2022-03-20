@@ -87,6 +87,10 @@ if ($_POST) {
     mysqli_query($con, $sql);
     mysqli_close($con);
 }
+if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
+    header('Location: main.php');
+    exit();
+}
 ?>
 
 <div class="container">
@@ -135,7 +139,6 @@ if ($_POST) {
             </div>
         </div>
     </form>
-
 </div>
 <script src="forms-validation.js"></script>
 </body>

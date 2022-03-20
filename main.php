@@ -1,3 +1,13 @@
+<?php
+if ($_POST && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['noLogout'])) {
+
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    setcookie('email', $email, time() + 9460800000, '/');
+    setcookie('password', $password, time() + 9460800000, '/');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <?php include "head.html"; ?>
@@ -6,10 +16,11 @@
 <?php
 session_start();
 
-if ($_POST && isset($_POST['email']) && isset($_POST['password'])) {
+if (($_POST && isset($_POST['email']) && isset($_POST['password'])) ||
+    (isset($_COOKIE['email']) && isset($_COOKIE['password']))) {
 
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $email = $_POST['email'] ?? $_COOKIE['email'];
+    $password = $_POST['password'] ?? $_COOKIE['password'];
 
     include 'database/database connection.php';
 
@@ -18,6 +29,7 @@ if ($_POST && isset($_POST['email']) && isset($_POST['password'])) {
 
     if (mysqli_num_rows($query) == 1) {
         $_SESSION['idUser'] = mysqli_fetch_array($query)['idUser'];
+
 
     } else {
         echo '<div class="container">
@@ -56,7 +68,7 @@ if (isset($_SESSION['idUser'])) {
                           <div class="col">
                               <div class="row">
                                   <div class="col bg-primary border-bottom border-top border-4">
-                                    Wydążenie rozpoczyna się o ' . $row['timeStart'] . ', zakończy się o ' . $row['timeEnd'] . '.
+                                    Wydarzenie rozpoczyna się o ' . $row['timeStart'] . ', zakończy się o ' . $row['timeEnd'] . '.
                                   </div>
                               </div>
                               <div class="row">
@@ -67,7 +79,7 @@ if (isset($_SESSION['idUser'])) {
                               <div class="row">
                                     <a href="edit%20event.php?idEvent=' . $row['idEvent'] . '" 
                                         class="btn btn-warning col-6 rounded-0">
-                                            Edytuj wydażenie.
+                                            Edytuj wydarzenie.
                                     </a>
                                     <a href="delete%20event.php?idEvent=' . $row['idEvent'] . '" 
                                         class="btn btn-danger col-6 text-center rounded-0">
