@@ -14,6 +14,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="add%20event.php">Dodaj wydarzenie do kalendarza</a>
                 </li>
+                <li>
+                    <div class="nav-item">
+                        <a href="logout.php" class="nav-link">Wyloguj się.</a>
+                    </div>
+                </li>
             </ul>
             <div class="navbar-text">
                 Witaj
