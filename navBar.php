@@ -9,7 +9,7 @@
         <div class="navbar-collapse collapse " id="navbar">
             <ul class="navbar-nav ">
                 <li class="nav-item">
-                    <a class="nav-link" href="main.php">Strona główna</a>
+                    <a class="nav-link" href="main.php" id="mainPHP">Strona główna</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="add%20event.php">Dodaj wydarzenie do kalendarza</a>
@@ -21,14 +21,14 @@
                 </li>
             </ul>
             <div class="dropdown me-auto">
-                <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton1"
+                <button class="btn btn-outline-light dropdown-toggle" type="button" id="sortOption"
                         data-bs-toggle="dropdown" aria-expanded="false">
                     Rodzaj sortowania.
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <ul class="dropdown-menu" aria-labelledby="sortOption">
                     <li><a class="dropdown-item" id="dataSort" href="main.php?dataSort=1">Sortowanie po dacie</a></li>
                     <li>
-                        <a class="dropdown-item" id="IsDoneSort" href="main.php?dataSort=0">
+                        <a class="dropdown-item" id="isDoneSort" href="main.php?dataSort=0">
                             Sortowanie po tym, czy zadanie zostało wykonane.
                         </a>
                     </li>

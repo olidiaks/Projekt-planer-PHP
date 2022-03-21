@@ -7,3 +7,12 @@ const activeItemOnNavbar = item => {
         }
     }
 }
+
+function activeSortOption(dataSortOption) {
+    if (dataSortOption == 1) {
+        document.getElementById('dataSort').className += ' active';
+    } else {
+        document.getElementById('isDoneSort').className += ' active';
+    }
+}
+

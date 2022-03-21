@@ -127,6 +127,11 @@ echo '</div>';
     <script src="navbar.js"></script>
     <script>
         activeItemOnNavbar('Strona główna');
+        <?php
+        if (isset($_GET['dataSort'])) {
+            echo "activeSortOption({$_GET['dataSort']});";
+        }
+        ?>
     </script>
     <?php
 } else {
