@@ -31,6 +31,7 @@ if (mysqli_num_rows($query) == 0) {
         `date` DATE NOT NULL , 
         `timeStart` TIME NOT NULL ,
         `timeEnd` TIME NOT NULL ,
+        `isDone` BOOLEAN NOT NULL,
         PRIMARY KEY (`idEvent`))
         ENGINE = InnoDB;
         ';

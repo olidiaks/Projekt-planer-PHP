@@ -14,12 +14,13 @@ if (
     isset($_POST['timeEnd'])
 ) {
     include "database/database connection.php";
-    $sql = "insert into Event (idUser, content, date, timeStart, timeEnd) 
-            VALUE ('" . $_SESSION['idUser'] . "',
-            '" . $_POST['content'] . "',
-            '" . $_POST['date'] . "',
-            '" . $_POST['timeStart'] . "',
-            '" . $_POST['timeEnd'] . "')";
+    $sql = "insert into Event (idUser, content, date, timeStart, timeEnd, isDone) 
+            VALUE ('{$_SESSION['idUser']}',
+            '{$_POST['content']}',
+            '{$_POST['date']}',
+            '{$_POST['timeStart']}',
+            '{$_POST['timeEnd']}',
+            0)";
     if ($query = mysqli_query($con, $sql)) {
         mysqli_close($con);
         header('Location: main.php');
