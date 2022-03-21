@@ -57,9 +57,15 @@ for ($i = 0;
     $date = date("Y-m-d", time() + 86400 * $i) . '<br>';
 
     $sql = "select idEvent, content, timeStart, timeEnd, isDone from Event
-                    where date = '$date' and idUser = '" . $_SESSION['idUser'] . "'
-                    order by timeStart";
+                    where date = '$date' and idUser = '" . $_SESSION['idUser'] . "'";
+    isset($_GET['dataSort']) ?
+        ($sql .= $_GET['dataSort'] ?
+            'order by timeStart, isDone' :
+            'order by isDone desc, timeStart asc') :
+        $sql .= 'order by timeStart, isDone';
+
     $query = mysqli_query($con, $sql);
+
     echo "<div class='col-12 col-md-6 col-lg-4 border border-4'>
                       <div class='row border-bottom border-4'>
                             <div class='col bg-info text-black'>Plan na dzień $date</div>
