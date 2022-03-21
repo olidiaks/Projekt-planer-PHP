@@ -55,9 +55,14 @@ for ($i = 0;
 
     }
     $date = date("Y-m-d", time() + 86400 * $i) . '<br>';
-
-    $sql = "select idEvent, content, timeStart, timeEnd, isDone from Event
-                    where date = '$date' and idUser = '" . $_SESSION['idUser'] . "'";
+    $sql;
+    if (isset($_POST['search'])) {
+        $sql = "select idEvent, content, timeStart, timeEnd, isDone from Event
+                        where date = '$date' and idUser = '" . $_SESSION['idUser'] . "' and content like '%{$_POST['search']}%'";
+    } else {
+        $sql = "select idEvent, content, timeStart, timeEnd, isDone from Event
+                        where date = '$date' and idUser = '" . $_SESSION['idUser'] . "'";
+    }
     isset($_GET['dataSort']) ?
         ($sql .= $_GET['dataSort'] ?
             'order by timeStart, isDone' :
@@ -129,7 +134,7 @@ echo '</div>';
         activeItemOnNavbar('Strona główna');
         <?php
         if (isset($_GET['dataSort'])) {
-            echo "activeSortOption({$_GET['dataSort']});";
+            echo "activeSortOption({$_GET['dataSort']};";
         }
         ?>
     </script>

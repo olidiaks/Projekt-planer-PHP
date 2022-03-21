@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-primary ">
     <div class="container">
-        <a class="navbar-brand" href="main.php">Planer</a>
+        <a class="navbar-brand" href="https://github.com/olidiaks/Projekt-planer-PHP">Planer</a>
 
         <button class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
             <span class="navbar-toggler-icon"></span>
@@ -20,7 +20,7 @@
                     </div>
                 </li>
             </ul>
-            <div class="dropdown me-auto">
+            <div class="dropdown ">
                 <button class="btn btn-outline-light dropdown-toggle" type="button" id="sortOption"
                         data-bs-toggle="dropdown" aria-expanded="false">
                     Rodzaj sortowania.
@@ -34,6 +34,11 @@
                     </li>
                 </ul>
             </div>
+            <form class="d-flex mt-1 mt-lg-0 me-auto ms-lg-1" action="main.php" method="post">
+                <input class="form-control me-2" type="search" name="search" placeholder="Wpisz czego chcesz szukać"
+                       aria-label="Search">
+                <button class="btn btn-success" type="submit">Poszukaj</button>
+            </form>
             <div class="navbar-text">
                 Witaj
                 <?php
